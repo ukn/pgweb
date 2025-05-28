@@ -34,6 +34,7 @@ func RequestLogger(logger *logrus.Logger) gin.HandlerFunc {
 	debug := logger.Level > logrus.InfoLevel
 	info := logger.Level >= logrus.InfoLevel
 	logForwardedUser := command.Opts.LogForwardedUser
+
 	logger.SetFormatter(&logrus.JSONFormatter{})
 	return func(c *gin.Context) {
 		start := time.Now()
